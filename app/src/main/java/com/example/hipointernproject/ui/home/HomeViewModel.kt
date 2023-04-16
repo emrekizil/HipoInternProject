@@ -26,13 +26,11 @@ class HomeViewModel @Inject constructor(
     var mutableList = mutableListOf<MemberEntity>()
     var filteredList = listOf<MemberEntity>()
 
-    var isFiltering = false
     fun getAllMembers() {
         viewModelScope.launch {
             getAllMembersUseCase.invoke().collectLatest { response->
                 when (response) {
                     is NetworkResponseState.Success -> {
-                        //mutableList = it.result?.toMutableList()!!
                         response.result?.let { mutableList.addAll(it) }
                         _memberHomeUiState.postValue(
                             HomeUiState.Success(
@@ -52,7 +50,6 @@ class HomeViewModel @Inject constructor(
     }
 
     fun filterMembers(name: String) {
-        isFiltering = true
         filteredList = mutableList.filter {
             it.name.lowercase().contains(name.lowercase())
         }
@@ -80,22 +77,6 @@ class HomeViewModel @Inject constructor(
                 memberListMapper.map(mutableList)
             )
         )
-       /* if (isFiltering){
-            filteredList = filteredList + newMember
-            _memberHomeUiState.postValue(
-                HomeUiState.Success(
-                    memberListMapper.map(filteredList)
-                )
-            )
-        }else{
-            mutableList.add(newMember)
-            _memberHomeUiState.postValue(
-                HomeUiState.Success(
-                    memberListMapper.map(mutableList)
-                )
-            )
-        }*/
-
     }
 
 }

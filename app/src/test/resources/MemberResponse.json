@@ -1,0 +1,46 @@
+{
+  "company": "Hipo",
+  "team": "Android",
+  "members": [
+    {
+      "name": "Yasin Cetiner",
+      "age": 33,
+      "location": "Istanbul",
+      "github": "artizco",
+      "hipo": {
+        "position": "Android Team Lead",
+        "years_in_hipo": 5
+      }
+    },
+    {
+      "name": "Mithat Sinan Sari",
+      "age": 29,
+      "location": "İstanbul",
+      "github": "mitsinsar",
+      "hipo": {
+        "position": "Android Developer",
+        "years_in_hipo": 4
+      }
+    },
+    {
+      "name": "Miraç Özkan",
+      "age": 25,
+      "location": "İstanbul",
+      "github": "miracozkan",
+      "hipo": {
+        "position": "Android Developer",
+        "years_in_hipo": 3
+      }
+    },
+    {
+      "name": "Onuralp Avcı",
+      "age": 23,
+      "location": "Ankara",
+      "github": "onuralpavci",
+      "hipo": {
+        "position": "Android Developer",
+        "years_in_hipo": 2
+      }
+    }
+  ]
+}

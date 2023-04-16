@@ -20,9 +20,6 @@ class HipoRepositoryImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : HipoRepository {
 
-    private var memberList = emptyList<Member>()
-    var isFiltering = false
-    var firstTime = true
     override suspend fun getAllMembers(): Flow<NetworkResponseState<List<MemberEntity>>> =
         flow {
             emit(NetworkResponseState.Loading)

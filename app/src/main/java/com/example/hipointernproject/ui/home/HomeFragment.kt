@@ -1,21 +1,18 @@
 package com.example.hipointernproject.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hipointernproject.R
 import com.example.hipointernproject.databinding.FragmentHomeBinding
 import com.example.hipointernproject.utility.observeTextChanges
 import com.example.hipointernproject.utility.okWith
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -38,20 +35,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getAllMembers()
         observeUiState()
         observeTextChanges()
-        binding.button.setOnClickListener {
-            viewModel.addMember(21,
-                "emrekizil",
-                "Intern",
-                0, //I hope will be 1 :)
-                "Istanbul",
-                "Emre Kızıl")
-        }
+        setUi()
     }
 
     private fun observeUiState() {
+        viewModel.getAllMembers()
         viewModel.memberHomeUiState.observe(viewLifecycleOwner){
             when(it){
                 is HomeUiState.Success->{
@@ -79,6 +69,17 @@ class HomeFragment : Fragment() {
             .onEach{
                viewModel.filterMembers(it)
             }.launchIn(lifecycleScope)
+    }
+
+    private fun setUi(){
+        binding.button.setOnClickListener {
+            viewModel.addMember(21,
+                "emrekizil",
+                "Intern",
+                0, //I hope will be 1 :)
+                "Istanbul",
+                "Emre Kızıl")
+        }
     }
     companion object {
         private const val MINIMUM_SEARCH_LENGTH = -1
