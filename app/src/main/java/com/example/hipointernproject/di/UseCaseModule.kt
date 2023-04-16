@@ -1,7 +1,7 @@
 package com.example.hipointernproject.di
 
-import com.example.hipointernproject.domain.repository.HipoRepository
-import com.example.hipointernproject.data.repository.HipoRepositoryImpl
+import com.example.hipointernproject.domain.usecase.GetAllMembersUseCase
+import com.example.hipointernproject.domain.usecase.GetAllMembersUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -10,9 +10,9 @@ import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
 @InstallIn(ViewModelComponent::class)
-abstract class HipoRepositoryModule {
+abstract class UseCaseModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindHipoRepository(hipoRepositoryImpl: HipoRepositoryImpl): HipoRepository
+    abstract fun bindGetAllMembersUseCase(allMembersUseCaseImpl: GetAllMembersUseCaseImpl) : GetAllMembersUseCase
 }

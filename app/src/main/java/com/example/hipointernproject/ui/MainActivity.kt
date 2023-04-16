@@ -1,9 +1,8 @@
-package com.example.hipointernproject
+package com.example.hipointernproject.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import com.example.hipointernproject.ui.home.HomeViewModel
+import com.example.hipointernproject.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
