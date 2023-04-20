@@ -12,8 +12,8 @@ class MemberListMapperImpl @Inject constructor() : MemberListMapper<Member,Membe
                 github = it.github,
                 location = it.location,
                 name = it.name,
-                position = it.hipo.position,
-                yearsInHipo = it.hipo.yearsInHipo
+                position = it.hipo.position.orEmpty(),
+                yearsInHipo = it.hipo.yearsInHipo ?: 0
             )
         } ?: emptyList()
     }

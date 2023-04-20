@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.hipointernproject.R
 import com.example.hipointernproject.databinding.FragmentHomeBinding
 import com.example.hipointernproject.utility.observeTextChanges
 import com.example.hipointernproject.utility.okWith
@@ -52,7 +53,7 @@ class HomeFragment : Fragment() {
                         .show()
                 }
                 is HomeUiState.Loading->{
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
                 }
             }
         }
